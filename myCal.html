@@ -1,0 +1,95 @@
+<html>
+	<head>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+       
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/calender.css"/>
+		<title>Calender Window</title>
+	</head>
+	<body>
+		<div id="calDiv"></div>
+        <div id="wrapper" style="display:none">
+            <textarea id="AddComment" placeholder="Add your comment"></textarea>
+        </div>
+	</body>
+</html>
+<script src="./js/calender1.js"></script>
+<script>
+    function displayDate(t,month,yr){
+        var year = yr;
+        var dt = $(t)[0].dataset.attr;
+        var commentToAdd="";
+        if($(event.target).hasClass("fa-plus")){
+            
+            $('#wrapper').dialog({
+            autoOpen: false,
+            title: 'Add Comment',
+            buttons: [
+            {
+                id: "Add",
+                text: "Add",
+                click: function (val) {
+                    var commentToAdd = $("#AddComment").val();
+                    if(!doneText['doneText'+Number(month+1)+'_'+year]){
+                doneText['doneText'+Number(month+1)+'_'+year]=[];
+            }
+            doneText['doneText'+Number(month+1)+'_'+year].push({date:dt,"text":commentToAdd})
+
+            localStorage.setItem("doneText",JSON.stringify(doneText))
+            calendar()
+            $(this).dialog('close');
+                }
+            },
+            {
+                id: "Cancel",
+                text: "Cancel",
+                click: function () {
+                    $(this).dialog('close');
+                }
+            }
+            ],
+            open:function(){
+                $("#AddComment").val("");
+            }
+        });
+   //$('#opener').click(function() {
+       $('#wrapper').dialog('open');
+       //return false;
+   //});
+            
+           
+        }
+        else if($(event.target).hasClass("fa-eye")){
+            $('#wrapper').dialog({
+            autoOpen: false,
+            title: 'View Comment',
+            open:function(){
+                $("#AddComment").val($(t).data().comment);
+            }
+        })
+        $('#wrapper').dialog('open');
+    }
+        else{
+            if(!doneDays['doneDays'+Number(month+1)+'_'+year]){
+                doneDays['doneDays'+Number(month+1)+'_'+year]=[];
+            }
+        if(doneDays['doneDays'+Number(month+1)+'_'+year].indexOf(Number($(t)[0].dataset.attr))==-1){
+            doneDays['doneDays'+Number(month+1)+'_'+year].push(Number($(t)[0].dataset.attr))
+        }
+        else{
+            ind = doneDays['doneDays'+Number(month+1)+'_'+year].indexOf(Number($(t)[0].dataset.attr));
+            doneDays['doneDays'+Number(month+1)+'_'+year].splice(ind,1);
+        }
+        localStorage.setItem("doneDays",JSON.stringify(doneDays))
+        calendar();
+    }
+    }
+    $(".add-icon").on("click", function(e){
+        debugger;
+        return;
+    })
+</script>

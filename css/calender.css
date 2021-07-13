@@ -1,0 +1,168 @@
+table{
+	background-color: gainsboro;
+	color:ffffff;
+	width:90%;
+	height:90%;
+}
+table tr:first-child td {	
+	background-color: cornsilk;
+	color:000000; 
+	text-align: center;
+	
+}
+td{
+	background-color: floralwhite; 
+	color:000000; 
+	text-align: center;
+	cursor:pointer;
+}
+input[type="submit"]{
+    border: none;
+    background: transparent;
+    color: brown;
+	cursor:pointer;
+}
+
+td.current{
+	color: white;
+    background: sienna;
+}
+.empty{
+	background: darkkhaki;
+	cursor: auto;
+}
+.datePicker{
+	width: 40%;
+    background: cornsilk;
+    height: 76px;
+    padding: 10px;
+	border-radius: 10px;
+}
+.datePicker input[type="text"]{
+	height:30px;
+    border-radius:9px;
+}
+#show{
+    height: 28px;
+    border-radius: 5px;
+    width: 59px;
+    background: ivory;
+}
+th{
+	color:blue;
+}
+.datePicker p{
+color:brown;
+}
+td.emptyLast {
+    background: cadetblue;
+	cursor: auto;
+}
+td#header {
+    height: 42px;
+    color: deeppink;
+    background: bisque;
+	cursor: auto;
+	font-size: 22px;
+}
+.monthSection{
+	background: cornsilk;
+    height: 27px;
+    color: brown;
+	cursor: auto;
+	font-size: 19px;
+    
+}
+#cal table{
+    width: 100%;
+    height: 60%;
+	
+}
+#cal{
+	border:1px solid gray;
+	width: 43%;
+	margin-top:10px;
+	display:none;
+}
+#cal table input[type="submit"]{
+	
+	display:none;
+}
+#calDiv td {
+    width: 100px;
+    height: 70px;
+	position: relative;
+	max-width: 100px;
+	white-space: nowrap;
+}
+button.add-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+textarea#AddComment {
+    width: 100%;
+    height: 60px;
+}
+.ui-dialog-titlebar {
+    background: green;
+    padding: 0;
+    color: #fff;
+}
+.ui-dialog {
+    padding: 0;
+}
+.ui-dialog-titlebar {
+    background: green;
+    padding: 0;
+    color: #fff;
+}
+
+.ui-dialog {
+    padding: 0;
+}
+
+.ui-dialog-buttonpane {
+    padding: 0 !important;
+    margin: 0;
+    background: #ddd;
+}
+button.hidden-more {
+    display: none;
+}
+button.show-more {
+    position: absolute;
+    right: 0;
+    top: 47px;
+	background: transparent;
+    border: none;
+	outline: none;
+	color:#fff;
+}
+td p {
+    /* max-width: 13px !important; */
+    overflow: hidden;
+    width: 88px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+div#calDiv {
+    width: 80%;
+    margin: auto;
+}
+
+td#header {
+    height: 38px;
+    display: none;
+}
+
+td.monthSection {
+    height: 50px !important;
+}
+tr.next-prev-row td {
+    height: 40px !important;
+}
